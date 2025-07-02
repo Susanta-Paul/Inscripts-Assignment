@@ -224,11 +224,21 @@ export default function TableSheet() {
                     <>
                     <Header>
                         <HeaderRow>
-                        <HeaderCell resize={resize}>ID</HeaderCell>
-                        <HeaderCell resize={resize}>Job Request</HeaderCell>
-                        <HeaderCell resize={resize}>Submitted</HeaderCell>
-                        <HeaderCell resize={resize}>Status</HeaderCell>
-                        <HeaderCell resize={resize}>Submitter</HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div className='bg-gray-300 text-gray-500'>ID</div>
+                        </HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div className='bg-gray-300 text-gray-500'>Job Request</div>
+                        </HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div className='bg-gray-300 text-gray-500'>Submitted</div>
+                            </HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div className='bg-gray-300 text-gray-500'>Status</div>
+                        </HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div className='bg-gray-300 text-gray-500'>Sumbitter</div>
+                        </HeaderCell>
                         <HeaderCell resize={resize}>Assigned</HeaderCell>
                         <HeaderCell resize={resize}>Priority</HeaderCell>
                         <HeaderCell resize={resize}>Due Date</HeaderCell>
