@@ -8,6 +8,12 @@ import {
   HeaderCell,
   Cell,
 } from '@table-library/react-table-library/table';
+import {
+  useSort,
+  HeaderCellSort,
+  SortIconPositions,
+  SortToggleType,
+} from "@table-library/react-table-library/sort";
 import { useTheme } from '@table-library/react-table-library/theme';
 import type { TableNode } from '@table-library/react-table-library/table';
 import { useState } from 'react';
@@ -48,7 +54,7 @@ const theme = useTheme({
         },
         {
             id: "2",
-            jobRequest: "Deploy backend",
+            jobRequest: "applied maths",
             submitted: "2025-06-30",
             status: "In-Process",
             sumbitter: "Alice",
@@ -178,6 +184,90 @@ const theme = useTheme({
             // dueDate: new Date("2025-07-05"),
             estValue: "",
         },
+        {
+            id: "13",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "14",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "15",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "16",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "17",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "18",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
+        {
+            id: "19",
+            jobRequest: "",
+            submitted: "",
+            status: "",
+            sumbitter: "",
+            assigned: "",
+            priority: "",
+            dueDate: "",
+            // dueDate: new Date("2025-07-05"),
+            estValue: "",
+        },
     ]
 
 
@@ -217,38 +307,104 @@ export default function TableSheet() {
         }));
     };
 
+
+    const sort = useSort(
+        data,
+        {
+        onChange: onSortChange,
+        },
+        {
+        sortFns: {
+            JOB: (array) => array.sort((a, b) => a.jobRequest.localeCompare(b.jobRequest)),
+            SUMBITTED: (array) => array.sort((a, b) => a.submitted - b.submitted),
+            STATUS: (array) => array.sort((a, b) => a.status.localeCompare(b.status)),
+            SUBMITTER: (array) => array.sort((a, b) => a.sumbitter.localeCompare(b.sumbitter)),
+            ASSIGNED: (array) => array.sort((a, b) => a.assigned.localeCompare(b.assigned)),
+            PRIORITY: (array) => array.sort((a, b) => a.priority - b.priority),
+            DUEDATE: (array) => array.sort((a, b) => a.dueDate - b.dueDate),
+            ESTVAL: (array) => array.sort((a, b) => a.estValue.localeCompare(b.estValue)),
+            
+        },
+        }
+    );
+    function onSortChange(action: any, state: any) {
+        console.log(action, state);
+    }
+
+
+
+
     return (
         <div className='max-h-screen'>
-            <Table data={data} theme={theme} layout={{ fixedHeader: true }}>
+            <Table data={data} sort={sort} theme={theme} layout={{ fixedHeader: true }}>
                 {(tableList: TaskRow[]) => (
                     <>
                     <Header>
                         <HeaderRow>
                         <HeaderCell resize={resize}>
-                            <div className='bg-gray-300 text-gray-500'>ID</div>
+                            <div className='cursor-pointer bg-gray-300 text-gray-500'>ID</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='bg-gray-300 text-gray-500'>Job Request</div>
+                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "JOB",
+                                })}
+                            >Job Request</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='bg-gray-300 text-gray-500'>Submitted</div>
+                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "SUMBITTED",
+                                })}
+                            >Submitted</div>
                             </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='bg-gray-300 text-gray-500'>Status</div>
+                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "STATUS",
+                                })}
+                            >Status</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='bg-gray-300 text-gray-500'>Sumbitter</div>
+                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "SUBMITTER",
+                                })}
+                            >Sumbitter</div>
                         </HeaderCell>
-                        <HeaderCell resize={resize}>Assigned</HeaderCell>
-                        <HeaderCell resize={resize}>Priority</HeaderCell>
-                        <HeaderCell resize={resize}>Due Date</HeaderCell>
-                        <HeaderCell>Est. Value</HeaderCell>
+                        <HeaderCell resize={resize}
+                        onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "ASSIGNED",
+                                })}
+                        >Assigned</HeaderCell>
+                        <HeaderCell resize={resize}
+                        onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "PRIORITY",
+                                })}
+                        >Priority</HeaderCell>
+                        <HeaderCell resize={resize}
+                        onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "DUEDATE",
+                                })}
+                        >Due Date</HeaderCell>
+                        <HeaderCell
+                        onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "ESTVALcursor-pointer ",
+                                })}
+                        >Est. Value</HeaderCell>
                         </HeaderRow>
                     </Header>
 
                     <Body>
                         {tableList.map((item)=>(
-                            <>
                             <Row key={item.id} item={item}>
                                 <Cell> {item.id} </Cell>
                                 <Cell>
@@ -309,8 +465,6 @@ export default function TableSheet() {
                                     />
                                 </Cell>
                             </Row>
-                            
-                            </>
                         ))}
                     </Body>
                     </>
