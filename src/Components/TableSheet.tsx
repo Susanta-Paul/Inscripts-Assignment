@@ -17,6 +17,7 @@ import {
 import { useTheme } from '@table-library/react-table-library/theme';
 import type { TableNode } from '@table-library/react-table-library/table';
 import { useState } from 'react';
+import {nodes} from "./Nodes.ts"
 
   
 
@@ -39,239 +40,6 @@ const theme = useTheme({
         `,
     });
 
-    const nodes=[
-        {
-            id: "1",
-            jobRequest: "Deploy backend",
-            submitted: "2025-06-30",
-            status: "In-Process",
-            sumbitter: "Alice",
-            assigned: "Bob",
-            priority: "High",
-            dueDate: "2025-07-05",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "$5000",
-        },
-        {
-            id: "2",
-            jobRequest: "applied maths",
-            submitted: "2025-06-30",
-            status: "In-Process",
-            sumbitter: "Alice",
-            assigned: "Bob",
-            priority: "High",
-            dueDate: "2025-07-05",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "$5000",
-        },
-        {
-            id: "3",
-            jobRequest: "Deploy backend",
-            submitted: "2025-06-30",
-            status: "In-Process",
-            sumbitter: "Alice",
-            assigned: "Bob",
-            priority: "High",
-            dueDate: "2025-07-05",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "$5000",
-        },
-        {
-            id: "4",
-            jobRequest: "Deploy backend",
-            submitted: "2025-06-30",
-            status: "In-Process",
-            sumbitter: "Alice",
-            assigned: "Bob",
-            priority: "High",
-            dueDate: "2025-07-05",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "$5000",
-        },
-        {
-            id: "5",
-            jobRequest: "Deploy backend",
-            submitted: "2025-06-30",
-            status: "In-Process",
-            sumbitter: "Alice",
-            assigned: "Bob",
-            priority: "High",
-            dueDate: "2025-07-05",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "$5000",
-        },
-        {
-            id: "6",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "7",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "8",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "9",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "10",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "11",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "12",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "13",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "14",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "15",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "16",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "17",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "18",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-        {
-            id: "19",
-            jobRequest: "",
-            submitted: "",
-            status: "",
-            sumbitter: "",
-            assigned: "",
-            priority: "",
-            dueDate: "",
-            // dueDate: new Date("2025-07-05"),
-            estValue: "",
-        },
-    ]
-
-
-
 
 
 export default function TableSheet() {
@@ -288,6 +56,7 @@ export default function TableSheet() {
         priority: "Low" | "Medium" | "High",
         dueDate: string;
         estValue: string;
+        url: string;
 
 
     }
@@ -323,6 +92,7 @@ export default function TableSheet() {
             PRIORITY: (array) => array.sort((a, b) => a.priority - b.priority),
             DUEDATE: (array) => array.sort((a, b) => a.dueDate - b.dueDate),
             ESTVAL: (array) => array.sort((a, b) => a.estValue.localeCompare(b.estValue)),
+            URL: (array) => array.sort((a, b) => a.url.localeCompare(b.url)),
             
         },
         }
@@ -342,10 +112,10 @@ export default function TableSheet() {
                     <Header>
                         <HeaderRow>
                         <HeaderCell resize={resize}>
-                            <div className='cursor-pointer bg-gray-300 text-gray-500'>ID</div>
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'>ID</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'
                             onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "JOB",
@@ -353,7 +123,7 @@ export default function TableSheet() {
                             >Job Request</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'
                             onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "SUMBITTED",
@@ -361,7 +131,7 @@ export default function TableSheet() {
                             >Submitted</div>
                             </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'
                             onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "STATUS",
@@ -369,37 +139,54 @@ export default function TableSheet() {
                             >Status</div>
                         </HeaderCell>
                         <HeaderCell resize={resize}>
-                            <div className='cursor-pointer bg-gray-300 text-gray-500'
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'
                             onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "SUBMITTER",
                                 })}
                             >Sumbitter</div>
                         </HeaderCell>
-                        <HeaderCell resize={resize}
+                        <HeaderCell resize={resize}>
+                            <div className='p-2 cursor-pointer bg-gray-300 text-gray-500'
+                            onClick={()=>
+                                    sort.fns.onToggleSort({
+                                    sortKey: "URL",
+                                })}
+                            >URL</div>
+                        </HeaderCell>
+                        <HeaderCell resize={resize}>
+                        <div
+                        className='p-2 cursor-pointer text-gray-500 bg-green-200'
                         onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "ASSIGNED",
                                 })}
-                        >Assigned</HeaderCell>
-                        <HeaderCell resize={resize}
+                        >Assigned</div>
+                        </HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div
+                            className='p-2 cursor-pointer bg-purple-200'
                         onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "PRIORITY",
                                 })}
-                        >Priority</HeaderCell>
-                        <HeaderCell resize={resize}
+                        >Priority</div></HeaderCell>
+                        <HeaderCell resize={resize}>
+                            <div
+                            className='p-2 cursor-pointer bg-purple-200'
                         onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "DUEDATE",
                                 })}
-                        >Due Date</HeaderCell>
-                        <HeaderCell
+                        >Due Date</div></HeaderCell>
+                        <HeaderCell>
+                            <div
+                            className='p-2 cursor-pointer bg-orange-200'
                         onClick={()=>
                                     sort.fns.onToggleSort({
                                     sortKey: "ESTVALcursor-pointer ",
                                 })}
-                        >Est. Value</HeaderCell>
+                        >Est. Value</div></HeaderCell>
                         </HeaderRow>
                     </Header>
 
@@ -434,6 +221,12 @@ export default function TableSheet() {
                                     <input type="text"
                                     value={item.sumbitter}
                                     onChange={(e)=>{handleUpdate(e.target.value, item.id, "sumbitter")}}
+                                    />
+                                </Cell>
+                                <Cell>
+                                    <input type="text"
+                                    value={item.url}
+                                    onChange={(e)=>{handleUpdate(e.target.value, item.id, "url")}}
                                     />
                                 </Cell>
                                 <Cell>

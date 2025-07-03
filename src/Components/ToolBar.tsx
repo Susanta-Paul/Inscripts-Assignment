@@ -12,7 +12,7 @@ import { IoIosGitBranch } from "react-icons/io";
 
 export default function ToolBar(){
     return(
-        <div className="flex justify-between border border-gray py-1 px-2">
+        <div className="flex justify-between border border-gray-500 py-1 px-2">
             <div className="flex gap-4 text-lg">
                 <div className="flex items-center gap-2">
                     Tool Bar
